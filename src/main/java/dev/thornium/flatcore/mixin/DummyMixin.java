@@ -1,4 +1,4 @@
-package com.example.examplemod.mixin;
+package dev.thornium.flatcore.mixin;
 
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 
