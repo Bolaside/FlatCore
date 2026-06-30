@@ -1,0 +1,7 @@
+{
+    "parent": "gtceu:item/material_sets/dull/ring",
+    "textures": {
+        "layer0": "gtceu:item/material_sets/pig_iron/ring",
+        "layer1": "gtceu:item/material_sets/shiny/ring_overlay"
+    }
+}

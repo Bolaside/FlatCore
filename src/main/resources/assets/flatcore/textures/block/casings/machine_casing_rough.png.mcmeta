@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "flatcore:block/casings/machine_casing_rough_ctm"
+    }
+}

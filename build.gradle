@@ -66,7 +66,6 @@ repositories {
     maven {
         url = "https://thedarkcolour.github.io/KotlinForForge/"
     }
-
 }
 
 version = mod_version
@@ -101,6 +100,7 @@ legacyForge {
             sourceSet = sourceSets.main
             programArguments.addAll('--refresh-dependencies')
             systemProperty('forge.enabledGameTestNamespaces', project.mod_id)
+            programArguments.addAll("--username", "Thornite", "--uuid", "7d6cd0a0-6a50-444f-b4df-6a3c8ced5bf7")
         }
         server {
             server()
@@ -153,6 +153,10 @@ dependencies {
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
     modImplementation("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
+
+    // client mods
+    modRuntimeOnly("curse.maven:itemzoom-261725:5043628")
+    modRuntimeOnly("curse.maven:model-gap-fix-676136:4607206")
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'

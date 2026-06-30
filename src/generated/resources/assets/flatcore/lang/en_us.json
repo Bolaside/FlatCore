@@ -1,0 +1,17 @@
+{
+  "block.flatcore.greenhouse": "Greenhouse",
+  "block.flatcore.rough_machine_casing": "Rough Machine Casing",
+  "block.flatcore.stone_oreifier": "Stone Oreifier",
+  "item.flatcore.gallium_iii_oxide_boule": "Gallium III Oxide Boule",
+  "item.flatcore.gallium_iii_oxide_wafer": "Gallium III Oxide Wafer",
+  "itemGroup.flatcore.flatcore": "FlatCore",
+  "material.flatcore.azuron": "Azuron",
+  "material.flatcore.constantan": "Constantan",
+  "material.flatcore.gallium_iii_oxide": "Gallium III Oxide",
+  "material.flatcore.gallium_nitrate": "Gallium Nitrate",
+  "material.flatcore.pig_iron": "Pig Iron",
+  "material.flatcore.red_brass": "Red Brass",
+  "material.flatcore.redstone_glowstone_mixture": "Redstone Glowstone Mixture",
+  "material.flatcore.stone_ore_mass": "Stone Ore Mass",
+  "material.flatcore.vitreloy_105": "Vitreloy 105"
+}
