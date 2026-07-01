@@ -1,10 +1,12 @@
 package dev.thornium.flatcore.mixin;
 
+import dev.thornium.flatcore.utils.FTIconSetUtils;
+
 import com.gregtechceu.gtceu.api.block.PipeBlock;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.registry.registrate.provider.GTBlockstateProvider;
 import com.gregtechceu.gtceu.common.pipelike.fluidpipe.FluidPipeType;
-import dev.thornium.flatcore.utils.FTIconSetUtils;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
