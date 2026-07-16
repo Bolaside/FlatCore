@@ -3,6 +3,7 @@ package dev.thornium.flatcore.mixin;
 import dev.thornium.flatcore.utils.FTIconSetUtils;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
@@ -24,8 +25,9 @@ public class MoltenLiquidTextureMixin {
     private void flatcore$overrideMoltenTexture(Material material, FluidStorageKey key, String modid, CallbackInfo ci) {
         if (!key.equals(FluidStorageKeys.MOLTEN)) return;
 
-        FTIconSetUtils.getOverrideIconSet(material).ifPresent(iconSet -> {
+        MaterialIconSet iconSet = FTIconSetUtils.getOverrideIconSet(material);
+        if (iconSet != null) {
             still = ResourceLocation.fromNamespaceAndPath(modid, "block/fluids/fluid.molten." + iconSet.name);
-        });
+        }
     }
 }

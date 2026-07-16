@@ -6,6 +6,7 @@ import com.tterrag.registrate.util.entry.BlockEntry
 import com.tterrag.registrate.util.nullness.NonNullFunction
 import com.tterrag.registrate.util.nullness.NonNullSupplier
 import dev.thornium.flatcore.FlatCore
+import dev.thornium.flatcore.api.Initialized
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BlockItem
@@ -14,13 +15,11 @@ import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.state.BlockBehaviour
 import java.util.function.Supplier
 
-object FTBlocks {
+object FTBlocks : Initialized {
     val CASING_WROUGHT_IRON_ROUGH: BlockEntry<Block> = createCasingBlock(
         "rough_machine_casing",
         FlatCore.id("block/casings/machine_casing_rough"),
     )
-
-    fun init() {}
 
     fun createCasingBlock(name: String, texture: ResourceLocation): BlockEntry<Block> =
         createCasingBlock(name, ::Block, texture, { Blocks.IRON_BLOCK }, { Supplier { RenderType.solid() } })

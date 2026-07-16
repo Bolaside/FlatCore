@@ -6,10 +6,11 @@ import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs
 import com.tterrag.registrate.util.entry.RegistryEntry
 import dev.thornium.flatcore.FlatCore
 import dev.thornium.flatcore.FlatCore.Companion.REGISTRATE
+import dev.thornium.flatcore.api.Initialized
 import dev.thornium.flatcore.registry.FTMaterials
 import net.minecraft.world.item.CreativeModeTab
 
-object FTCreativeTabs {
+object FTCreativeTabs : Initialized {
     val FLATCORE: RegistryEntry<CreativeModeTab> = REGISTRATE.defaultCreativeTab(
         FlatCore.MOD_ID,
     ) { builder ->
@@ -18,6 +19,4 @@ object FTCreativeTabs {
             .title(REGISTRATE.addLang("itemGroup", FlatCore.id(FlatCore.MOD_ID), FlatCore.NAME))
             .build()
     }.register()
-
-    fun init() {}
 }

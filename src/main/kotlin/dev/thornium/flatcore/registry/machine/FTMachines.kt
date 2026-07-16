@@ -15,6 +15,7 @@ import com.gregtechceu.gtceu.common.data.GTMaterials.Steel
 import com.gregtechceu.gtceu.common.data.GTRecipeModifiers.*
 import com.tterrag.registrate.util.entry.BlockEntry
 import dev.thornium.flatcore.FlatCore.Companion.REGISTRATE
+import dev.thornium.flatcore.api.Initialized
 import dev.thornium.flatcore.common.data.FTCreativeTabs
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.GREENHOUSE_RECIPES
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.STONE_OREIFIER_RECIPES
@@ -24,7 +25,7 @@ import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.material.Fluids
 
 @Suppress("unused")
-object FTMachines {
+object FTMachines : Initialized {
     init {
         REGISTRATE.creativeModeTab { FTCreativeTabs.FLATCORE }
     }
@@ -43,8 +44,8 @@ object FTMachines {
                 .aisle("SFFFS", "D   D", "D   D", "GO OG", " GEG ")
                 .aisle("SFFFS", "D   D", "D   D", "GO OG", " GEG ")
                 .aisle("SFFFS", "D   D", "D   D", "GO OG", " GEG ")
-                .aisle("SS@SS", "UDDDU", "UDDDU", "UUGUU", " UUU ")
-                .where("@", Predicates.controller(Predicates.blocks(definition.get())))
+                .aisle("SS!SS", "UDDDU", "UDDDU", "UUGUU", " UUU ")
+                .where("!", Predicates.controller(Predicates.blocks(definition.get())))
                 .where(
                     "S",
                     Predicates.blocks(CASING_STEEL_SOLID.get()).setMinGlobalLimited(8)
@@ -114,6 +115,4 @@ object FTMachines {
 
     private fun getFrame(material: Material): BlockEntry<out Block?>? =
         GTMaterialBlocks.MATERIAL_BLOCKS.get(frameGt, material)
-
-    fun init() {}
 }

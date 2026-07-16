@@ -1,38 +1,15 @@
 package dev.thornium.flatcore.registry
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material
+import com.gregtechceu.gtceu.api.GTValues.*
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.DustProperty
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.FluidProperty
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.*
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix.plate
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix.ring
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys
 import com.gregtechceu.gtceu.api.item.tool.GTToolType
-import com.gregtechceu.gtceu.api.GTValues.IV
-import com.gregtechceu.gtceu.api.GTValues.LV
-import com.gregtechceu.gtceu.api.GTValues.M
-import com.gregtechceu.gtceu.api.GTValues.ULV
-import com.gregtechceu.gtceu.api.GTValues.V
-import com.gregtechceu.gtceu.api.GTValues.VA
-import com.gregtechceu.gtceu.common.data.GTMaterials.Carbon
-import com.gregtechceu.gtceu.common.data.GTMaterials.Glowstone
-import com.gregtechceu.gtceu.common.data.GTMaterials.Gold
-import com.gregtechceu.gtceu.common.data.GTMaterials.STD_METAL
-import com.gregtechceu.gtceu.common.data.GTMaterials.Steel
-import com.gregtechceu.gtceu.common.data.GTMaterials.Stone
-import com.gregtechceu.gtceu.common.data.GTMaterials.TinAlloy
-import com.gregtechceu.gtceu.common.data.GTMaterials.Titanium
-import com.gregtechceu.gtceu.common.data.GTMaterials.TricalciumPhosphate
-import com.gregtechceu.gtceu.common.data.GTMaterials.Wood
-import com.gregtechceu.gtceu.common.data.GTMaterials.WroughtIron
-import com.gregtechceu.gtceu.common.data.GTMaterials.Zirconium
+import com.gregtechceu.gtceu.common.data.GTMaterials.*
 import dev.thornium.flatcore.api.data.tag.FTTagPrefix.toolHeadMultiTool
 import dev.thornium.flatcore.registry.materials.CompatMaterials
 import dev.thornium.flatcore.registry.materials.FirstDegreeMaterials
@@ -61,44 +38,28 @@ import dev.thornium.flatcore.registry.materials.SecondDegreeMaterials
  * Single owner of the public Material references: the `materials` subpackage only
  * builds and returns Material instances, it never reaches back in to assign here.
  */
+@Suppress("unused")
 object FTMaterials {
     // compat materials
-    lateinit var RedstoneGlowstoneMixture: Material
-        private set
+    val RedstoneGlowstoneMixture get() = CompatMaterials.RedstoneGlowstoneMixture
 
     // first degree materials
-    lateinit var RedBrass: Material
-        private set
-    lateinit var Azuron: Material
-        private set
-    lateinit var Constantan: Material
-        private set
-    lateinit var PigIron: Material
-        private set
-    lateinit var Vitreloy105: Material
-        private set
-    lateinit var GalliumNitrate: Material
-        private set
-    lateinit var Gallium3Oxide: Material
-        private set
+    val PigIron get() = FirstDegreeMaterials.PigIron
+
+    val Azuron get() = FirstDegreeMaterials.Azuron
+    val Constantan get() = FirstDegreeMaterials.Constantan
+    val RedBrass get() = FirstDegreeMaterials.RedBrass
+    val Vitreloy105 get() = FirstDegreeMaterials.Vitreloy105
+
+    val Gallium3Oxide get() = FirstDegreeMaterials.Gallium3Oxide
+    val GalliumNitrate get() = FirstDegreeMaterials.GalliumNitrate
 
     // second degree materials
-    lateinit var StoneOreMass: Material
-        private set
+    val StoneOreMass get() = SecondDegreeMaterials.StoneOreMass
 
     fun init() {
-        RedstoneGlowstoneMixture = CompatMaterials.register()
-
-        val firstDegree = FirstDegreeMaterials.register()
-        RedBrass = firstDegree.redBrass
-        Azuron = firstDegree.azuron
-        Constantan = firstDegree.constantan
-        PigIron = firstDegree.pigIron
-        Vitreloy105 = firstDegree.vitreloy105
-        GalliumNitrate = firstDegree.galliumNitrate
-        Gallium3Oxide = firstDegree.gallium3Oxide
-
-        StoneOreMass = SecondDegreeMaterials.register()
+        val materialGroups = listOf(CompatMaterials, FirstDegreeMaterials, SecondDegreeMaterials)
+        materialGroups.forEach { it.init() }
 
         toolHeadMultiTool.addSecondaryMaterial(
             MaterialStack(Steel, plate.materialAmount() * 2 + ring.materialAmount() * 2),
@@ -118,16 +79,28 @@ object FTMaterials {
 
         Wood.setProperty(
             PropertyKey.TOOL,
-            ToolProperty(1f, 1f, 128, 1, arrayOf(GTToolType.SAW, GTToolType.FILE, GTToolType.WRENCH, GTToolType.SOFT_MALLET)),
+            ToolProperty(
+                1f,
+                1f,
+                128,
+                1,
+                arrayOf(GTToolType.SAW, GTToolType.FILE, GTToolType.WRENCH, GTToolType.SOFT_MALLET)
+            ),
         )
         Stone.setProperty(
             PropertyKey.TOOL,
-            ToolProperty(1f, 1f, 128, 1, arrayOf(GTToolType.SAW, GTToolType.FILE, GTToolType.WRENCH, GTToolType.HARD_HAMMER, GTToolType.DRILL_LV)),
+            ToolProperty(
+                1f,
+                1f,
+                128,
+                1,
+                arrayOf(GTToolType.SAW, GTToolType.FILE, GTToolType.WRENCH, GTToolType.HARD_HAMMER, GTToolType.DRILL_LV)
+            ),
         )
         TinAlloy.setProperty(PropertyKey.WIRE, WireProperties(V[ULV], 1, 3))
-        Steel.getProperty(PropertyKey.BLAST).setEUtOverride(VA[LV])
+        Steel.getProperty(PropertyKey.BLAST).eUtOverride = VA[LV]
 
-        Glowstone.setComponents(MaterialStack(Gold, M), MaterialStack(TricalciumPhosphate, M))
+        Glowstone.setComponents(MaterialStack(Gold, 1), MaterialStack(TricalciumPhosphate, 1))
         Glowstone.setFormula("AuCa3(PO4)2")
 
         Zirconium.setProperty(PropertyKey.DUST, DustProperty(4, 0))

@@ -31,6 +31,12 @@ val jei_version: String by project
 val emi_version: String by project
 val kotlinforforge_version: String by project
 
+idea {
+    module {
+        isDownloadSources = true
+    }
+}
+
 sourceSets {
     main {
         resources.srcDir("src/generated/resources")

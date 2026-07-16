@@ -1,8 +1,9 @@
 package dev.thornium.flatcore.registry
 
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet
+import dev.thornium.flatcore.api.Initialized
 
-object FTMaterialIconSet {
+object FTMaterialIconSet : Initialized {
     val ALL: MutableSet<MaterialIconSet> = mutableSetOf()
 
     val CONSTANTAN: MaterialIconSet = register(MaterialIconSet("constantan", MaterialIconSet.METALLIC))
@@ -12,6 +13,4 @@ object FTMaterialIconSet {
         ALL.add(iconSet)
         return iconSet
     }
-
-    fun init() {}
 }

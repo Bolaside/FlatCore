@@ -9,12 +9,6 @@ import dev.thornium.flatcore.registry.FTMaterialIconSet
 import dev.thornium.flatcore.registry.FTMaterials
 import net.minecraftforge.eventbus.api.IEventBus
 
-/**
- * Owns the full material lifecycle: registry creation, registration of FlatCore's
- * own materials, and post-registration modification of GregTech's materials.
- * Kept as one class because GT's material events are strictly ordered and the
- * three stages share no logic with any other registration concern.
- */
 class MaterialEventHandler : ModEventListener {
     override fun registerTo(modEventBus: IEventBus) {
         modEventBus.addListener(::onRegistryCreation)

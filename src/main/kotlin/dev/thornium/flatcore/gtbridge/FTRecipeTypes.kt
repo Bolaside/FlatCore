@@ -10,11 +10,12 @@ import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes.*
 import com.gregtechceu.gtceu.common.data.GTSoundEntries
 import com.lowdragmc.lowdraglib.gui.texture.ProgressTexture.FillDirection.LEFT_TO_RIGHT
+import dev.thornium.flatcore.api.Initialized
 import dev.thornium.flatcore.api.gui.FTTextures
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.ComposterBlock
 
-object FTRecipeTypes {
+object FTRecipeTypes : Initialized {
     val GREENHOUSE_RECIPES: GTRecipeType = register("greenhouse", MULTIBLOCK)
         .setMaxIOSize(3, 6, 1, 0)
         .setEUIO(IO.IN)
@@ -44,6 +45,4 @@ object FTRecipeTypes {
         }
         .setProgressBar(GuiTextures.PROGRESS_BAR_RECYCLER, LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.MORTAR_TOOL)
-
-    fun init() {}
 }

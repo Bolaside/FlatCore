@@ -2,9 +2,10 @@ package dev.thornium.flatcore.common.data
 
 import com.tterrag.registrate.util.entry.ItemEntry
 import dev.thornium.flatcore.FlatCore.Companion.REGISTRATE
+import dev.thornium.flatcore.api.Initialized
 import net.minecraft.world.item.Item
 
-object FTItems {
+object FTItems : Initialized {
     init {
         REGISTRATE.creativeModeTab { FTCreativeTabs.FLATCORE }
     }
@@ -16,6 +17,4 @@ object FTItems {
     val GALLIUM_WAFER: ItemEntry<Item> = REGISTRATE.item("gallium_iii_oxide_wafer", ::Item)
         .lang("Gallium III Oxide Wafer")
         .register()
-
-    fun init() {}
 }
