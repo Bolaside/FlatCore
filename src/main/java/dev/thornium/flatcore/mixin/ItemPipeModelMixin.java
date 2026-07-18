@@ -16,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(value = ItemPipeType.class, remap = false)
 public class ItemPipeModelMixin {
     @ModifyVariable(method = "createPipeModel", at = @At(value = "STORE"), name = "sideTexture")
-    private ResourceLocation flatcore$modifySide(ResourceLocation value, PipeBlock<?, ?, ?> block, Material material,
+    private ResourceLocation flatcore$modifySide(ResourceLocation sideTexture, PipeBlock<?, ?, ?> block, Material material,
                                                  GTBlockstateProvider provider) {
-        return FTIconSetUtils.overridePipeLocation(value, material);
+        return FTIconSetUtils.overridePipeLocation(sideTexture, material);
     }
 
     @ModifyVariable(method = "createPipeModel", at = @At(value = "STORE"), name = "endTexture")
-    private ResourceLocation flatcore$modifyEnd(ResourceLocation value, PipeBlock<?, ?, ?> block, Material material,
+    private ResourceLocation flatcore$modifyEnd(ResourceLocation endTexture, PipeBlock<?, ?, ?> block, Material material,
                                                 GTBlockstateProvider provider) {
-        return FTIconSetUtils.overridePipeLocation(value, material);
+        return FTIconSetUtils.overridePipeLocation(endTexture, material);
     }
 }

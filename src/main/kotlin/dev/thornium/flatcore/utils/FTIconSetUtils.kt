@@ -21,7 +21,7 @@ object FTIconSetUtils {
 
     @JvmStatic
     fun getOverrideIconSet(material: Material): MaterialIconSet? =
-        FTMaterialIconSet.ALL.firstOrNull { it.id == material.materialIconSet.id }
+        FTMaterialIconSet.ALL.firstOrNull { it.name == material.materialIconSet.name }
 
     private fun replacePath(original: String, iconSet: MaterialIconSet): String =
         original.replace("block/pipe", "block/material_sets/${iconSet.name}")
