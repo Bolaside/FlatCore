@@ -8,6 +8,8 @@ plugins {
     eclipse
     `maven-publish`
     kotlin("jvm") version "2.4.0"
+    kotlin("plugin.lombok") version "2.4.0"
+    kotlin("kapt") version "2.4.0"
     id("net.neoforged.moddev.legacyforge") version "2.0.91"
     id("com.diffplug.spotless") version "7.0.2"
 }
@@ -165,23 +167,25 @@ dependencies {
     compileOnly("org.jetbrains:annotations:26.0.1")
     implementation("thedarkcolour:kotlinforforge:$kotlinforforge_version")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    kapt("org.spongepowered:mixin:0.8.5:processor")
 
-    "modCompileOnly"("mezz.jei:jei-$minecraft_version-forge-api:$jei_version")
-    "modCompileOnly"("mezz.jei:jei-$minecraft_version-common-api:$jei_version")
-    "modRuntimeOnly"("mezz.jei:jei-$minecraft_version-forge:$jei_version")
-    "modRuntimeOnly"("dev.emi:emi-forge:$emi_version+$minecraft_version")
-    "modRuntimeOnly"("curse.maven:jade-324717:5390389")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-forge-api:$jei_version")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-common-api:$jei_version")
+    modRuntimeOnly("mezz.jei:jei-$minecraft_version-forge:$jei_version")
+    modRuntimeOnly("dev.emi:emi-forge:$emi_version+$minecraft_version")
+    modRuntimeOnly("curse.maven:jade-324717:5390389")
 
-    "modImplementation"("com.gregtechceu.gtceu:gtceu-$minecraft_version:$gtceu_version:slim") { isTransitive = false }
-    "modImplementation"("com.lowdragmc.ldlib:ldlib-forge-$minecraft_version:$ldlib_version") { isTransitive = false }
-    "modImplementation"("com.tterrag.registrate:Registrate:$registrate_version")
-    "modImplementation"("dev.toma.configuration:configuration-forge-$minecraft_version:$configuration_version")
+    modImplementation("com.gregtechceu.gtceu:gtceu-$minecraft_version:$gtceu_version:slim") { isTransitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-forge-$minecraft_version:$ldlib_version") { isTransitive = false }
+    modImplementation("com.tterrag.registrate:Registrate:$registrate_version")
+    modImplementation("dev.toma.configuration:configuration-forge-$minecraft_version:$configuration_version")
 
-    "modRuntimeOnly"("curse.maven:itemzoom-261725:5043628")
-    "modRuntimeOnly"("curse.maven:model-gap-fix-676136:4607206")
+    modRuntimeOnly("curse.maven:itemzoom-261725:5043628")
+    modRuntimeOnly("curse.maven:model-gap-fix-676136:4607206")
 
     compileOnly("org.projectlombok:lombok:1.18.24")
     annotationProcessor("org.projectlombok:lombok:1.18.24")
+    testImplementation(kotlin("test"))
 }
 
 configure<MixinExtension> {
@@ -223,4 +227,8 @@ tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }
+}
+
+kapt {
+    keepJavacAnnotationProcessors = true
 }
