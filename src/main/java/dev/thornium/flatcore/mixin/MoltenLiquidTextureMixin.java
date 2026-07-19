@@ -1,15 +1,12 @@
 package dev.thornium.flatcore.mixin;
 
-import dev.thornium.flatcore.utils.FTIconSetUtils;
-
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
 import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys;
-
+import dev.thornium.flatcore.utils.FTIconSetUtils;
 import net.minecraft.resources.ResourceLocation;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

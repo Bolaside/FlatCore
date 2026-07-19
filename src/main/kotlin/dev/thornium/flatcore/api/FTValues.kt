@@ -1,11 +1,7 @@
 package dev.thornium.flatcore.api
 
-import net.minecraftforge.fluids.FluidStack
-
 import com.gregtechceu.gtceu.api.GTValues.L
-import com.gregtechceu.gtceu.common.data.GTMaterials.Rubber
-import com.gregtechceu.gtceu.common.data.GTMaterials.SiliconeRubber
-import com.gregtechceu.gtceu.common.data.GTMaterials.StyreneButadieneRubber
+import com.gregtechceu.gtceu.common.data.GTMaterials.*
 
 @Suppress("unused")
 object FTValues {

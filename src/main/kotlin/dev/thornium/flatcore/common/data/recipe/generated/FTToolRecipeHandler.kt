@@ -9,7 +9,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialEntry
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix.plate
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix.*
 import com.gregtechceu.gtceu.api.item.tool.GTToolType
 import com.gregtechceu.gtceu.common.data.GTMaterialItems
 import com.gregtechceu.gtceu.common.data.GTMaterials
@@ -32,9 +32,9 @@ object FTToolRecipeHandler {
         if (!material.shouldGenerateRecipesFor(plate)) return
         if (!(material.hasFlag(GENERATE_PLATE) && material.hasFlag(GENERATE_DENSE))) return
 
-        val plateDense = MaterialEntry(TagPrefix.plateDense, material)
-        val steelPlate = MaterialEntry(TagPrefix.plate, GTMaterials.Steel)
-        val steelRing = MaterialEntry(TagPrefix.ring, GTMaterials.Steel)
+        val plateDense = MaterialEntry(plateDense, material)
+        val steelPlate = MaterialEntry(plate, GTMaterials.Steel)
+        val steelRing = MaterialEntry(ring, GTMaterials.Steel)
 
         if (!property.hasType(FTToolType.MULTI_TOOL)) return
 
