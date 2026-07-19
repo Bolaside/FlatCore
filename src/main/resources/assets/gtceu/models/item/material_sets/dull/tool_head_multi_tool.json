@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "flatcore:item/material_sets/metallic/tool_head_multi_tool",
+        "layer1": "flatcore:item/material_sets/metallic/tool_head_multi_tool_secondary"
+    }
+}
