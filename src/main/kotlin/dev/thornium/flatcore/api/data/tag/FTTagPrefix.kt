@@ -11,7 +11,7 @@ import dev.thornium.flatcore.api.chemical.material.info.FTMaterialIconType
 import dev.thornium.flatcore.api.item.tool.FTToolType
 
 object FTTagPrefix : Initialized {
-    val toolHeadMultiTool: TagPrefix = TagPrefix("multiToolHead")
+    val toolHeadMultiTool = TagPrefix("multiToolHead")
         .itemTable { GTMaterialItems.MATERIAL_ITEMS }
         .langValue("%s Multi Tool Head")
         .materialAmount(M * 9 * 3)

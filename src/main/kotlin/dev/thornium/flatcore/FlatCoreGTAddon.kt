@@ -2,7 +2,6 @@ package dev.thornium.flatcore
 
 import com.gregtechceu.gtceu.api.addon.GTAddon
 import com.gregtechceu.gtceu.api.addon.IGTAddon
-import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate
 import dev.thornium.flatcore.api.chemical.material.info.FTMaterialIconType
 import dev.thornium.flatcore.api.data.tag.FTTagPrefix
 import dev.thornium.flatcore.common.data.FTRecipes
@@ -12,11 +11,11 @@ import java.util.function.Consumer
 @Suppress("unused")
 @GTAddon
 class FlatCoreGTAddon : IGTAddon {
-    override fun getRegistrate(): GTRegistrate = FlatCore.REGISTRATE
+    override fun getRegistrate() = FlatCore.REGISTRATE
 
     override fun initializeAddon() {}
 
-    override fun addonModId(): String = FlatCore.MOD_ID
+    override fun addonModId() = FlatCore.MOD_ID
 
     override fun registerTagPrefixes() {
         FTMaterialIconType.init()

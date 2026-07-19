@@ -12,11 +12,10 @@ import com.gregtechceu.gtceu.data.recipe.CustomTags
 import dev.thornium.flatcore.api.data.tag.FTTagPrefix
 import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
-import net.minecraftforge.common.ToolAction
 import net.minecraftforge.common.ToolActions
 
 object FTToolType {
-    private val MULTI_TOOL_ACTIONS: Set<ToolAction> = buildSet {
+    private val MULTI_TOOL_ACTIONS = buildSet {
         add(ToolActions.PICKAXE_DIG)
         add(ToolActions.AXE_DIG)
         add(ToolActions.SWORD_DIG)

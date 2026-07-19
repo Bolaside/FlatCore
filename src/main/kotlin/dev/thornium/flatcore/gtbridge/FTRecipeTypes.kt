@@ -5,7 +5,6 @@ import com.gregtechceu.gtceu.api.GTValues.VHA
 import com.gregtechceu.gtceu.api.capability.recipe.IO
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability
 import com.gregtechceu.gtceu.api.gui.GuiTextures
-import com.gregtechceu.gtceu.api.recipe.GTRecipeType
 import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes.*
 import com.gregtechceu.gtceu.common.data.GTSoundEntries
@@ -16,21 +15,21 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.ComposterBlock
 
 object FTRecipeTypes : Initialized {
-    val GREENHOUSE_RECIPES: GTRecipeType = register("greenhouse", MULTIBLOCK)
+    val GREENHOUSE_RECIPES = register("greenhouse", MULTIBLOCK)
         .setMaxIOSize(3, 6, 1, 0)
         .setEUIO(IO.IN)
         .setSlotOverlay(false, false, GuiTextures.ARROW_INPUT_OVERLAY)
         .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.TURBINE)
 
-    val STONE_OREIFIER_RECIPES: GTRecipeType = register("stone_oreifier", MULTIBLOCK)
+    val STONE_OREIFIER_RECIPES = register("stone_oreifier", MULTIBLOCK)
         .setMaxIOSize(2, 6, 1, 0)
         .setEUIO(IO.IN)
         .setSlotOverlay(false, false, GuiTextures.ARROW_INPUT_OVERLAY)
         .setProgressBar(FTTextures.PROGRESS_BAR_STONE_OREIFIER, LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.TURBINE)
 
-    val COMPOSTER_RECIPES: GTRecipeType = register("electric_composter", ELECTRIC)
+    val COMPOSTER_RECIPES = register("electric_composter", ELECTRIC)
         .setMaxIOSize(1, 1, 0, 0)
         .prepareBuilder { recipeBuilder -> recipeBuilder.EUt(VHA[ULV].toLong()).duration(20) }
         .onRecipeBuild { recipeBuilder, _ ->

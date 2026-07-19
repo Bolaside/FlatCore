@@ -2,7 +2,6 @@ package dev.thornium.flatcore.registry.materials
 
 import com.gregtechceu.gtceu.api.GTValues.*
 import com.gregtechceu.gtceu.api.data.chemical.material.Material
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.METALLIC
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty.GasTier
@@ -17,7 +16,7 @@ import dev.thornium.flatcore.registry.FTMaterialIconSet.CONSTANTAN
 import dev.thornium.flatcore.registry.FTMaterialIconSet.PIG_IRON
 
 object FirstDegreeMaterials : Initialized {
-    private val FULL_METAL: List<MaterialFlag> = buildList {
+    private val FULL_METAL = buildList {
         addAll(EXT2_METAL)
         add(GENERATE_FOIL)
         add(GENERATE_FRAME)

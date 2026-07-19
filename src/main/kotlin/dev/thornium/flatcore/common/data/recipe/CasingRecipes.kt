@@ -8,7 +8,6 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix.plate
 import com.gregtechceu.gtceu.common.data.GTMaterials.WroughtIron
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES
 import com.gregtechceu.gtceu.config.ConfigHolder
-import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder
 import com.tterrag.registrate.util.entry.BlockEntry
 import dev.thornium.flatcore.common.data.FTBlocks
 import net.minecraft.data.recipes.FinishedRecipe
@@ -21,11 +20,7 @@ object CasingRecipes {
             .save(provider)
     }
 
-    private fun makeBasicCasingRecipe(
-        recipeId: String,
-        material: Material,
-        blockEntry: BlockEntry<Block>,
-    ): GTRecipeBuilder =
+    private fun makeBasicCasingRecipe(recipeId: String, material: Material, blockEntry: BlockEntry<Block>) =
         ASSEMBLER_RECIPES.recipeBuilder(recipeId)
             .inputItems(plate, material, 6)
             .inputItems(frameGt, material)
