@@ -46,6 +46,15 @@ object FirstDegreeMaterials : Initialized {
         .blastTemp(1700, GasTier.LOW)
         .buildAndRegister()
 
+    val Ferrolite: Material = Material.Builder(FlatCore.id("ferrolite"))
+        .dust().ingot().liquid(1800)
+        .color(0xC0C8D4).iconSet(METALLIC)
+        .flags(GENERATE_PLATE, DECOMPOSITION_BY_CENTRIFUGING)
+        .components(Steel, 1, Copper, 1)
+        .cableProperties(V[LV], 1, 0, true)
+        .blastTemp(1300, GasTier.LOW, VA[LV])
+        .buildAndRegister()
+
     val Constantan: Material = Material.Builder(FlatCore.id("constantan"))
         .dust().ingot().liquid(FluidBuilder().customStill().temperature(1455))
         .color(0xFFFFFF).iconSet(CONSTANTAN)
@@ -68,7 +77,7 @@ object FirstDegreeMaterials : Initialized {
         .appendFlags(EXT2_METAL, GENERATE_DENSE, GENERATE_ROUND)
         .toolStats(ToolProperty.Builder.of(16.0f, 4.0f, 1920, 4, FTToolType.MULTI_TOOL).build())
         .components(Zirconium, 8, Titanium, 1, Copper, 3, Nickel, 3, Aluminium, 2)
-        .blast { b -> b.temp(3722, GasTier.MID).blastStats(VA[IV], 20 * 50) }
+        .blastTemp(3722, GasTier.MID, VA[IV], 20 * 50)
         .buildAndRegister()
 
     val GalliumNitrate: Material = Material.Builder(FlatCore.id("gallium_nitrate"))

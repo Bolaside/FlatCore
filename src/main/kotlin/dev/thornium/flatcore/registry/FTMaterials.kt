@@ -47,6 +47,7 @@ object FTMaterials {
     val PigIron get() = FirstDegreeMaterials.PigIron
 
     val Azuron get() = FirstDegreeMaterials.Azuron
+    val Ferrolite get() = FirstDegreeMaterials.Ferrolite
     val Constantan get() = FirstDegreeMaterials.Constantan
     val RedBrass get() = FirstDegreeMaterials.RedBrass
     val Vitreloy105 get() = FirstDegreeMaterials.Vitreloy105
