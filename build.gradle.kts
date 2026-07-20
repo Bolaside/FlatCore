@@ -11,7 +11,6 @@ plugins {
     kotlin("plugin.lombok") version "2.4.0"
     kotlin("kapt") version "2.4.0"
     id("net.neoforged.moddev.legacyforge") version "2.0.91"
-    id("com.diffplug.spotless") version "7.0.2"
 }
 
 val mod_version: String by project
@@ -160,8 +159,6 @@ tasks.jar {
         "MixinConfigs" to "flatcore.mixins.json",
     )
 }
-
-apply(from = "$rootDir/gradle/scripts/spotless.gradle")
 
 dependencies {
     compileOnly("org.jetbrains:annotations:26.0.1")
