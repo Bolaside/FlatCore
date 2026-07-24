@@ -1,13 +1,20 @@
 {
     "block.flatcore.greenhouse": "Теплица",
+    "block.flatcore.rough_machine_casing": "Корпус из жёсткого кованного железа",
     "block.flatcore.stone_oreifier": "Оруднитель камней",
-    "item.flatcore.gallium_iii_oxide_boule": "Кристаллический оксид галлия III",
-    "item.flatcore.gallium_iii_oxide_wafer": "Пластина из оксида галлия III",
+    "item.flatcore.gallium_iii_oxide_boule": "Кристаллический оксид галлия(III)",
+    "item.flatcore.gallium_iii_oxide_wafer": "Пластина из оксида галлия(III)",
+    "itemGroup.flatcore.creative_tab": "FlatCore",
+    "itemGroup.flatcore.flatcore": "FlatCore",
     "material.flatcore.azuron": "Азурон",
     "material.flatcore.constantan": "Константан",
+    "material.flatcore.ferrolite": "Ферролит",
+    "material.flatcore.gallium_iii_oxide": "Оксид галлия(III)",
+    "material.flatcore.gallium_nitrate": "Нитрат галлия",
     "material.flatcore.pig_iron": "Чугун",
     "material.flatcore.red_brass": "Красная латунь",
     "material.flatcore.redstone_glowstone_mixture": "Смесь редстоуна и светокамня",
     "material.flatcore.stone_ore_mass": "Масса каменной руды",
+    "material.flatcore.vitreloy_105": "Витрелой 105",
     "tagprefix.multi_tool_head": "%s (Мультиинструмент)"
 }

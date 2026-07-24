@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "gtceu:item/material_sets/pig_iron/plate_dense"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "gtceu:item/material_sets/pig_iron/plate_dense"
+    }
 }

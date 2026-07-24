@@ -1,7 +1,7 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "gtceu:item/material_sets/pig_iron/ingot",
-    "layer1": "gtceu:item/material_sets/metallic/ingot_overlay"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "gtceu:item/material_sets/pig_iron/ingot",
+        "layer1": "gtceu:item/material_sets/metallic/ingot_overlay"
+    }
 }
