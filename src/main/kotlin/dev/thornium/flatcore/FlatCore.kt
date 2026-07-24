@@ -24,6 +24,7 @@ class FlatCore {
             RecipeTypeEventHandler(),
             MachineEventHandler(),
             SoundEventHandler(),
+            DataGenEventHandler(),
         )
         eventListeners.forEach { it.registerTo(modEventBus) }
 
