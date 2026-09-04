@@ -31,6 +31,8 @@ val configuration_version: String by project
 val jei_version: String by project
 val emi_version: String by project
 val kotlinforforge_version: String by project
+val ae2_file_id: String by project
+val guideme_file_id: String by project
 
 idea {
     module {
@@ -176,9 +178,8 @@ dependencies {
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-$minecraft_version:$ldlib_version") { isTransitive = false }
     modImplementation("com.tterrag.registrate:Registrate:$registrate_version")
     modImplementation("dev.toma.configuration:configuration-forge-$minecraft_version:$configuration_version")
-
-    modRuntimeOnly("curse.maven:itemzoom-261725:5043628")
-    modRuntimeOnly("curse.maven:model-gap-fix-676136:4607206")
+    modImplementation("curse.maven:applied-energistics-2-223794:$ae2_file_id") { isTransitive = false }
+    modImplementation("curse.maven:guideme-1173950:$guideme_file_id") { isTransitive = false }
 
     compileOnly("org.projectlombok:lombok:1.18.24")
     annotationProcessor("org.projectlombok:lombok:1.18.24")

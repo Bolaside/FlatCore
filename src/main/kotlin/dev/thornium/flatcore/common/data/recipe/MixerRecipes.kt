@@ -46,5 +46,23 @@ object MixerRecipes {
             .EUt(VA[LV].toLong())
             .duration(20 * 20)
             .save(provider)
+
+        MIXER_RECIPES.recipeBuilder("fluix_dust")
+            .inputItems(TagPrefix.dust, GTMaterials.CertusQuartz)
+            .inputItems(TagPrefix.dust, GTMaterials.NetherQuartz)
+            .inputItems(TagPrefix.dust, GTMaterials.Redstone)
+            .inputFluids(GTMaterials.Water.getFluid(250))
+            .outputItems(TagPrefix.dust, FTMaterials.Fluix, 3)
+            .EUt(VA[LV].toLong())
+            .duration(20 * 10)
+            .save(provider)
+
+        MIXER_RECIPES.recipeBuilder("sky_dust")
+            .inputItems(TagPrefix.dust, GTMaterials.Obsidian, 4)
+            .inputItems(TagPrefix.dust, GTMaterials.CertusQuartz)
+            .outputItems(TagPrefix.dust, FTMaterials.SkyStone, 5)
+            .EUt(VH[LV].toLong())
+            .duration(20 * 30)
+            .save(provider)
     }
 }

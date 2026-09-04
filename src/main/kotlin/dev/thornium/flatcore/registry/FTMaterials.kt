@@ -11,6 +11,7 @@ import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKeys
 import com.gregtechceu.gtceu.api.item.tool.GTToolType
 import com.gregtechceu.gtceu.common.data.GTMaterials.*
 import dev.thornium.flatcore.api.data.tag.FTTagPrefix.toolHeadMultiTool
+import dev.thornium.flatcore.registry.materials.AEMaterials
 import dev.thornium.flatcore.registry.materials.CompatMaterials
 import dev.thornium.flatcore.registry.materials.FirstDegreeMaterials
 import dev.thornium.flatcore.registry.materials.SecondDegreeMaterials
@@ -43,6 +44,11 @@ object FTMaterials {
     // compat materials
     val RedstoneGlowstoneMixture get() = CompatMaterials.RedstoneGlowstoneMixture
 
+    // AE2 materials
+    val Fluix get() = AEMaterials.Fluix
+    val ChargedCertusQuartz get() = AEMaterials.ChargedCertusQuartz
+    val SkyStone get() = AEMaterials.SkyStone
+
     // first degree materials
     val PigIron get() = FirstDegreeMaterials.PigIron
 
@@ -59,7 +65,7 @@ object FTMaterials {
     val StoneOreMass get() = SecondDegreeMaterials.StoneOreMass
 
     fun init() {
-        val materialGroups = listOf(CompatMaterials, FirstDegreeMaterials, SecondDegreeMaterials)
+        val materialGroups = listOf(CompatMaterials, AEMaterials, FirstDegreeMaterials, SecondDegreeMaterials)
         materialGroups.forEach { it.init() }
 
         toolHeadMultiTool.addSecondaryMaterial(
