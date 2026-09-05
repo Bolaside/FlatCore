@@ -13,6 +13,7 @@ object FTRecipes {
         CircuitRecipes.init(provider)
         ComposterRecipes.init(provider)
         ControllerRecipes.init(provider)
+        GalliumRecipes.init(provider)
         MixerRecipes.init(provider)
 
         for (material in GTCEuAPI.materialManager.registeredMaterials) {
