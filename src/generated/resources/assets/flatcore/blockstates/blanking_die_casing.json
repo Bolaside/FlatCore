@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "flatcore:block/blanking_die_casing"
+    }
+  }
+}

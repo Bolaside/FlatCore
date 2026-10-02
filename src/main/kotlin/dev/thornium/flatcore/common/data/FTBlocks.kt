@@ -21,10 +21,25 @@ object FTBlocks : Initialized {
         FlatCore.id("block/casings/machine_casing_rough"),
     )
 
-    fun createCasingBlock(name: String, texture: ResourceLocation): BlockEntry<Block> =
+    val CASING_CAST_MANIFOLD: BlockEntry<Block> = createCasingBlock(
+        "cast_manifold_casing",
+        FlatCore.id("block/casings/cast_manifold_casing"),
+    )
+
+    val CASING_PRESSURE_VESSEL: BlockEntry<Block> = createCasingBlock(
+        "pressure_vessel_casing",
+        FlatCore.id("block/casings/pressure_vessel_casing"),
+    )
+
+    val CASING_BLANKING_DIE: BlockEntry<Block> = createCasingBlock(
+        "blanking_die_casing",
+        FlatCore.id("block/casings/blanking_die_casing"),
+    )
+
+    private fun createCasingBlock(name: String, texture: ResourceLocation): BlockEntry<Block> =
         createCasingBlock(name, ::Block, texture, { Blocks.IRON_BLOCK }, { Supplier { RenderType.solid() } })
 
-    fun createCasingBlock(
+    private fun createCasingBlock(
         name: String,
         blockSupplier: NonNullFunction<BlockBehaviour.Properties, Block>,
         texture: ResourceLocation,

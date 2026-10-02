@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "flatcore:block/cast_manifold_casing"
+    }
+  }
+}

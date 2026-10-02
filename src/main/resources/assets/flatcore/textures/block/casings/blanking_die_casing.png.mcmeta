@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "flatcore:block/casings/blanking_die_casing_ctm"
+    }
+}
