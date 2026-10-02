@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.GTValues.VHA
 import com.gregtechceu.gtceu.api.capability.recipe.IO
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability
 import com.gregtechceu.gtceu.api.gui.GuiTextures
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType
 import com.gregtechceu.gtceu.api.recipe.ingredient.SizedIngredient
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes.*
 import com.gregtechceu.gtceu.common.data.GTSoundEntries
@@ -15,6 +16,12 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.ComposterBlock
 
 object FTRecipeTypes : Initialized {
+    val ORE_SEPARATOR_RECIPES: GTRecipeType = register("ore_separator", ELECTRIC)
+        .setMaxIOSize(1, 6, 0, 0)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRACT, LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.CENTRIFUGE)
+        .setMaxTooltips(1)
+
     val PIPE_FORMER_RECIPES = register("pipe_former", ELECTRIC)
         .setMaxIOSize(2, 1, 0, 0)
         .setEUIO(IO.IN)

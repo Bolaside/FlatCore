@@ -4,6 +4,7 @@ import com.gregtechceu.gtceu.GTCEu
 import com.gregtechceu.gtceu.api.data.RotationState
 import com.gregtechceu.gtceu.api.data.chemical.material.Material
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix.frameGt
+import com.gregtechceu.gtceu.api.machine.MachineDefinition
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine
@@ -21,21 +22,40 @@ import dev.thornium.flatcore.common.data.FTBlocks.CASING_BLANKING_DIE
 import dev.thornium.flatcore.common.data.FTBlocks.CASING_CAST_MANIFOLD
 import dev.thornium.flatcore.common.data.FTBlocks.CASING_PRESSURE_VESSEL
 import dev.thornium.flatcore.common.data.FTCreativeTabs
+import dev.thornium.flatcore.common.machine.TierlessWorkableMachine
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.GREENHOUSE_RECIPES
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.IMPACT_FORMER_RECIPES
+import dev.thornium.flatcore.gtbridge.FTRecipeTypes.ORE_SEPARATOR_RECIPES
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.PIPE_FORMER_RECIPES
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.ROTARY_FORMER_RECIPES
 import dev.thornium.flatcore.gtbridge.FTRecipeTypes.STONE_OREIFIER_RECIPES
+import net.minecraft.network.chat.Component
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.BlockTags
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraftforge.fluids.FluidType
 import net.minecraft.world.level.material.Fluids
 
 @Suppress("unused")
 object FTMachines : Initialized {
     init {
         REGISTRATE.creativeModeTab { FTCreativeTabs.FLATCORE }
+        REGISTRATE.addLang("machine", FlatCore.id("tierless.tooltip"), "Runs without electricity")
     }
+
+    val ORE_SEPARATOR: MachineDefinition = REGISTRATE
+        .machine("ore_separator") { holder -> TierlessWorkableMachine(holder, 32 * FluidType.BUCKET_VOLUME) }
+        .langValue("Ore Separator")
+        .rotationState(RotationState.NON_Y_AXIS)
+        .recipeType(ORE_SEPARATOR_RECIPES)
+        .editableUI(TierlessWorkableMachine.EDITABLE_UI_CREATOR.apply(FlatCore.id("ore_separator"), ORE_SEPARATOR_RECIPES))
+        .workableCasingModel(
+            ResourceLocation.fromNamespaceAndPath("minecraft", "block/furnace_top"),
+            GTCEu.id("block/machines/centrifuge"),
+        )
+        .tooltips(Component.translatable("machine.flatcore.tierless.tooltip"))
+        .register()
 
     val GREENHOUSE: MultiblockMachineDefinition = REGISTRATE
         .multiblock("greenhouse", ::WorkableElectricMultiblockMachine)

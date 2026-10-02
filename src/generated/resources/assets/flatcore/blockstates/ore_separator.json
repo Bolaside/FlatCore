@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "flatcore:block/machine/ore_separator",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "flatcore:block/machine/ore_separator"
+    },
+    "facing=south": {
+      "model": "flatcore:block/machine/ore_separator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "flatcore:block/machine/ore_separator",
+      "y": 270
+    }
+  }
+}
