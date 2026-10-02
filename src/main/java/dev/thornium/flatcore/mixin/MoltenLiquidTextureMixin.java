@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = FluidBuilder.class, remap = false)
 public class MoltenLiquidTextureMixin {
+    @SuppressWarnings("unused")
     @Shadow
     private ResourceLocation still;
 

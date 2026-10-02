@@ -37,6 +37,7 @@ class FlatCore {
     companion object {
         const val MOD_ID = "flatcore"
         const val NAME = "FlatCore"
+        @Suppress("unused")
         val LOGGER: Logger = LogManager.getLogger()
         val REGISTRATE: GTRegistrate = GTRegistrate.create(MOD_ID)
 

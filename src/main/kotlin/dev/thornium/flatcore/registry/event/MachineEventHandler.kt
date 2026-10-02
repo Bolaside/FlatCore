@@ -11,7 +11,7 @@ class MachineEventHandler : ModEventListener {
         modEventBus.addGenericListener(MachineDefinition::class.java, ::onRegister)
     }
 
-    private fun onRegister(event: GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition>) {
+    private fun onRegister(@Suppress("unused") event: GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition>) {
         FTMachines.init()
     }
 }

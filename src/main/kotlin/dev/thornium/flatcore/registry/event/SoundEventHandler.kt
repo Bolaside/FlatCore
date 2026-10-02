@@ -10,5 +10,6 @@ class SoundEventHandler : ModEventListener {
         modEventBus.addGenericListener(SoundEntry::class.java, ::onRegister)
     }
 
-    private fun onRegister(event: GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry>) {}
+    @Suppress("EmptyMethod")
+    private fun onRegister(@Suppress("unused") event: GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry>) {}
 }

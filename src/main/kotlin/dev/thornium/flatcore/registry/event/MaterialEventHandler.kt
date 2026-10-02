@@ -16,16 +16,16 @@ class MaterialEventHandler : ModEventListener {
         modEventBus.addListener(::onMaterialModification)
     }
 
-    private fun onRegistryCreation(event: MaterialRegistryEvent) {
+    private fun onRegistryCreation(@Suppress("unused") event: MaterialRegistryEvent) {
         GTCEuAPI.materialManager.createRegistry(FlatCore.MOD_ID)
     }
 
-    private fun onMaterialRegistration(event: MaterialEvent) {
+    private fun onMaterialRegistration(@Suppress("unused") event: MaterialEvent) {
         FTMaterialIconSet.init()
         FTMaterials.init()
     }
 
-    private fun onMaterialModification(event: PostMaterialEvent) {
+    private fun onMaterialModification(@Suppress("unused") event: PostMaterialEvent) {
         FTMaterials.modify()
     }
 }

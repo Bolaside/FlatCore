@@ -10,7 +10,9 @@ class LifecycleEventHandler : ModEventListener {
         modEventBus.addListener(::onClientSetup)
     }
 
-    private fun onCommonSetup(event: FMLCommonSetupEvent) {}
+    @Suppress("EmptyMethod")
+    private fun onCommonSetup(@Suppress("unused") event: FMLCommonSetupEvent) {}
 
-    private fun onClientSetup(event: FMLClientSetupEvent) {}
+    @Suppress("EmptyMethod")
+    private fun onClientSetup(@Suppress("unused") event: FMLClientSetupEvent) {}
 }

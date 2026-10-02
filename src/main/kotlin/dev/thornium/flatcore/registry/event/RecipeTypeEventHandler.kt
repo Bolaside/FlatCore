@@ -11,7 +11,7 @@ class RecipeTypeEventHandler : ModEventListener {
         modEventBus.addGenericListener(GTRecipeType::class.java, ::onRegister)
     }
 
-    private fun onRegister(event: GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType>) {
+    private fun onRegister(@Suppress("unused") event: GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType>) {
         FTRecipeTypes.init()
     }
 }
