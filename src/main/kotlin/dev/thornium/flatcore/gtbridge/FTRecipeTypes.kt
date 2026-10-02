@@ -15,6 +15,27 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.ComposterBlock
 
 object FTRecipeTypes : Initialized {
+    val PIPE_FORMER_RECIPES = register("pipe_former", ELECTRIC)
+        .setMaxIOSize(2, 1, 0, 0)
+        .setEUIO(IO.IN)
+        .setSlotOverlay(false, false, true, GuiTextures.MOLD_OVERLAY)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRUDER, LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.COMPRESSOR)
+
+    val IMPACT_FORMER_RECIPES = register("impact_former", ELECTRIC)
+        .setMaxIOSize(2, 1, 0, 0)
+        .setEUIO(IO.IN)
+        .setSlotOverlay(false, false, true, GuiTextures.MOLD_OVERLAY)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRUDER, LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.COMPRESSOR)
+
+    val ROTARY_FORMER_RECIPES = register("rotary_former", ELECTRIC)
+        .setMaxIOSize(2, 1, 0, 0)
+        .setEUIO(IO.IN)
+        .setSlotOverlay(false, false, true, GuiTextures.MOLD_OVERLAY)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRUDER, LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.COMPRESSOR)
+
     val GREENHOUSE_RECIPES = register("greenhouse", MULTIBLOCK)
         .setMaxIOSize(3, 6, 1, 0)
         .setEUIO(IO.IN)

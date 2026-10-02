@@ -3,6 +3,7 @@ package dev.thornium.flatcore.common.data
 import com.gregtechceu.gtceu.api.GTCEuAPI
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags
 import dev.thornium.flatcore.common.data.recipe.*
+import dev.thornium.flatcore.common.data.recipe.generated.FTShapeRecipeHandler
 import dev.thornium.flatcore.common.data.recipe.generated.FTToolRecipeHandler
 import net.minecraft.data.recipes.FinishedRecipe
 import java.util.function.Consumer
@@ -16,6 +17,8 @@ object FTRecipes {
         GalliumRecipes.init(provider)
         MixerRecipes.init(provider)
 
+        FTShapeRecipeHandler.init(provider)
+
         for (material in GTCEuAPI.materialManager.registeredMaterials) {
             @Suppress("DEPRECATION") // why is this capital
             if (material.hasFlag(MaterialFlags.NO_UNIFICATION) ||
@@ -25,6 +28,7 @@ object FTRecipes {
             }
 
             FTToolRecipeHandler.run(provider, material)
+            FTShapeRecipeHandler.run(provider, material)
         }
     }
 }
