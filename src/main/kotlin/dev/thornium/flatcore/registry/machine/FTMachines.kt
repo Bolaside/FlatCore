@@ -128,7 +128,7 @@ object FTMachines : Initialized {
                         .or(Predicates.autoAbilities(*definition.recipeTypes))
                         .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)),
                 )
-                .where("F", Predicates.blocks(getFrame(Steel)!!.get()))
+                .where("F", Predicates.blocks(getFrame(Steel).get()))
                 .where("P", Predicates.blocks(CASING_STEEL_PIPE.get()))
                 .where("M", Predicates.abilities(PartAbility.MUFFLER).setExactLimit(1))
                 .where(" ", Predicates.any())
@@ -162,7 +162,7 @@ object FTMachines : Initialized {
                         .or(Predicates.autoAbilities(*definition.recipeTypes))
                         .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)),
                 )
-                .where("F", Predicates.blocks(getFrame(Steel)!!.get()))
+                .where("F", Predicates.blocks(getFrame(Steel).get()))
                 .where("P", Predicates.blocks(CASING_STEEL_PIPE.get()))
                 .where("G", Predicates.blocks(CASING_TEMPERED_GLASS.get()))
                 .where(" ", Predicates.any())
@@ -234,6 +234,7 @@ object FTMachines : Initialized {
         )
         .register()
 
-    private fun getFrame(material: Material): BlockEntry<out Block?>? =
+    private fun getFrame(material: Material): BlockEntry<out Block> =
         GTMaterialBlocks.MATERIAL_BLOCKS.get(frameGt, material)
+            ?: error("No frame block registered for $material")
 }

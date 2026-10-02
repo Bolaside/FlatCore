@@ -67,10 +67,12 @@ object FTToolRecipeHandler {
             if (!property.hasType(toolType)) continue
 
             val powerUnitStack = powerUnitItems[toolType.electricTier].asStack()
-            val powerUnit = GTCapabilityHelper.getElectricItem(powerUnitStack)!!
-            val tool: ItemStack = GTMaterialItems.TOOL_ITEMS.get(material, toolType)!!
-                .get()
-                .get(0, powerUnit.maxCharge)
+            val powerUnit = GTCapabilityHelper.getElectricItem(powerUnitStack)
+                ?: error("No electric capability on ${toolType.name} power unit")
+            val tool: ItemStack = GTMaterialItems.TOOL_ITEMS.get(material, toolType)
+                ?.get()
+                ?.get(0, powerUnit.maxCharge)
+                ?: error("No tool item registered for ${material.name} ${toolType.name}")
 
             VanillaRecipeHelper.addShapedEnergyTransferRecipe(
                 provider,
